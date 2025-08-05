@@ -6,6 +6,7 @@ function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -141,7 +142,7 @@ function Portfolio() {
           />
         </Link>
 
-        <nav className="flex space-x-6">
+        <nav className="hidden md:flex space-x-6">
           <Link to="/" className="hover:underline">
             Početna
           </Link>
@@ -155,7 +156,67 @@ function Portfolio() {
             Kontakt
           </Link>
         </nav>
+
+        <button
+          className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
+              isMenuOpen ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
+              isMenuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
+              isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
+        </button>
       </header>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden bg-white border-b border-gray-200 shadow-sm transition-all duration-200 ease-out overflow-hidden ${
+          isMenuOpen ? "opacity-100 max-h-40" : "opacity-0 max-h-0"
+        }`}
+      >
+        <nav className="px-6 py-4 space-y-4">
+          <Link
+            to="/"
+            className="block hover:underline cursor-pointer text-left w-full"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Početna
+          </Link>
+          <Link
+            to="/#services"
+            className="block hover:underline cursor-pointer text-left w-full"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Usluge
+          </Link>
+          <Link
+            to="/radovi"
+            className="block hover:underline cursor-pointer text-left w-full font-semibold"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Radovi
+          </Link>
+          <Link
+            to="/#contact"
+            className="block hover:underline cursor-pointer text-left w-full"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Kontakt
+          </Link>
+        </nav>
+      </div>
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-gray-50 to-white py-20 px-6">
