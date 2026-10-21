@@ -1,20 +1,94 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
+@theme {
+  --color-paper: #f3f1ec;
+  --color-ink: #151515;
+  --color-muted: #67635c;
+  --color-signal: #ee5a1c;
+
+  --font-sans: "Overpass", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Overpass Mono", ui-monospace, monospace;
+}
+
+/* Tamna tema: asfalt i signalna žuta. Prati sustav, osim kad je odabrana ručno. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: #141414;
+    --color-ink: #ecebe6;
+    --color-muted: #8f8c86;
+    --color-signal: #f2c200;
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-paper: #141414;
+  --color-ink: #ecebe6;
+  --color-muted: #8f8c86;
+  --color-signal: #f2c200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade pri promjeni teme */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+  animation-timing-function: ease;
 }
 
 html,
 body {
   margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+::selection {
+  background: var(--color-signal);
+  color: var(--color-paper);
+}
+
 #root {
-  width: 100%;
   min-height: 100vh;
+}
+
+/* Screenshotovi u paleti stranice (duotone), original u boji na hover.
+   Samo na uređajima s mišem — na mobitelu su slike uvijek u boji. */
+.duotone-layer {
+  display: none;
+}
+
+@media (hover: hover) {
+  .duotone {
+    position: relative;
+  }
+
+  .duotone-layer {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    filter: url(#duotone-light);
+    transition: opacity 0.6s ease;
+  }
+
+  :root[data-theme="dark"] .duotone-layer {
+    filter: url(#duotone-dark);
+  }
+
+  .duotone:hover .duotone-layer {
+    opacity: 0;
+  }
+}
+
+@media (hover: hover) and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .duotone-layer {
+    filter: url(#duotone-dark);
+  }
 }

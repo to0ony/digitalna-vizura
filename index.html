@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon_type_logo_black.png" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/icon_type_logo_dark.png"
-      media="(prefers-color-scheme: dark)"
-    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F3F1EC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141414" media="(prefers-color-scheme: dark)" />
+    <script>
+      // Ručno odabrana tema prije prvog iscrtavanja, da nema bljeska
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme) document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+    <meta
+      name="description"
+      content="Digitalizacija voznih redova: GTFS za Google Maps i druge aplikacije za planiranje putovanja."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=IM+Fell+French+Canon:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;600;800&family=Overpass+Mono:wght@400&display=swap"
       rel="stylesheet"
     />
     <title>Digitalna Vizura</title>
