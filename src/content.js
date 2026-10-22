@@ -215,7 +215,7 @@ export const content = {
 };
 
 export const contact = {
-  email: "digitalnavizura@gmail.com",
+  email: "info@digitalnavizura.com",
   whatsapp: "+385 99 670 5321",
   whatsappLink: "https://wa.me/385996705321",
 };
