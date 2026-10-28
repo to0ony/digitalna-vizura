@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import { useLang } from "../i18n";
 import { brcko } from "../data/brcko";
 import { container, grid, number } from "../grid";
 import Contact from "./Contact";
-import Flow from "./Flow";
+import GtfsFiles from "./GtfsFiles";
 import NetworkMap from "./NetworkMap";
+import PageTitle from "./PageTitle";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
 
@@ -18,6 +20,7 @@ function Gtfs() {
 
   return (
     <>
+      <PageTitle>GTFS</PageTitle>
       {/* Hero */}
       <section className={`${container} ${grid} pt-[14vh] pb-[16vh]`}>
         <Reveal className="col-span-12 lg:col-span-10">
@@ -35,47 +38,19 @@ function Gtfs() {
         </Reveal>
       </section>
 
-      <Flow />
-
-      {/* Proces */}
-      <section id="proces" className={`${container} ${grid} scroll-mt-8 pb-[16vh]`}>
-        <SectionLabel>{g.processLabel}</SectionLabel>
-        <div className="col-span-12 grid gap-14 sm:grid-cols-2 md:col-span-9 lg:grid-cols-4 lg:gap-6">
-          {g.process.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.1}>
-              <p className="mb-6 font-mono text-xs text-signal">{number(i)}</p>
-              <h3 className="mb-3 text-xl font-semibold tracking-tight">
-                {step.title}
-              </h3>
-              <p className="leading-relaxed text-muted">{step.text}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Prednosti */}
-      <section
-        id="prednosti"
-        className={`${container} ${grid} scroll-mt-8 pb-[16vh]`}
-      >
-        <SectionLabel>{g.benefitsLabel}</SectionLabel>
+      {/* Što je GTFS */}
+      <section id="gtfs" className={`${container} ${grid} scroll-mt-8 pb-[16vh]`}>
+        <SectionLabel>{g.whatLabel}</SectionLabel>
         <div className="col-span-12 md:col-span-9">
           <Reveal>
-            <h2 className="mb-16 text-4xl font-extrabold tracking-[-0.03em] md:text-5xl">
-              {g.benefitsTitle}
+            <h2 className="text-4xl font-extrabold tracking-[-0.03em] md:text-5xl">
+              {g.whatTitle}
             </h2>
+            <p className="mt-6 mb-12 max-w-xl text-lg leading-relaxed text-muted">
+              {g.whatText}
+            </p>
           </Reveal>
-          <div className="grid gap-14 md:grid-cols-3 md:gap-6">
-            {g.benefits.map((item, i) => (
-              <Reveal key={item.title} delay={i * 0.1}>
-                <p className="mb-6 font-mono text-xs text-signal">{number(i)}</p>
-                <h3 className="mb-3 text-xl font-semibold tracking-tight">
-                  {item.title}
-                </h3>
-                <p className="leading-relaxed text-muted">{item.text}</p>
-              </Reveal>
-            ))}
-          </div>
+          <GtfsFiles />
         </div>
       </section>
 
@@ -101,9 +76,40 @@ function Gtfs() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-20">
-            <NetworkMap />
+          <Reveal className="mt-16">
+            <NetworkMap collapsible />
           </Reveal>
+          <Reveal className="mt-4">
+            <Link
+              to="/radovi/terminus"
+              className="text-lg transition-colors hover:text-signal"
+            >
+              {g.demoMore} <span className="text-signal">→</span>
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Suradnja */}
+      <section id="suradnja" className={`${container} ${grid} scroll-mt-8 pb-[16vh]`}>
+        <SectionLabel>{g.processLabel}</SectionLabel>
+        <div className="col-span-12 md:col-span-9">
+          <Reveal>
+            <h2 className="mb-16 text-4xl font-extrabold tracking-[-0.03em] md:text-5xl">
+              {g.processTitle}
+            </h2>
+          </Reveal>
+          <div className="grid gap-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            {g.process.map((step, i) => (
+              <Reveal key={step.title} delay={i * 0.1}>
+                <p className="mb-6 font-mono text-xs text-signal">{number(i)}</p>
+                <h3 className="mb-3 text-xl font-semibold tracking-tight">
+                  {step.title}
+                </h3>
+                <p className="leading-relaxed text-muted">{step.text}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

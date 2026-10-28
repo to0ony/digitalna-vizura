@@ -19,12 +19,17 @@ function Contact() {
         </a>
         <div className="mt-10 flex flex-wrap gap-x-10 gap-y-2 text-muted">
           <p>{t.contact.text}</p>
-          <a
-            href={contact.whatsappLink}
-            className="text-ink transition-colors hover:text-signal"
-          >
-            WhatsApp {contact.whatsapp}
-          </a>
+          {contact.links.map(([name, href]) => (
+            <a
+              key={name}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="text-ink transition-colors hover:text-signal"
+            >
+              {name} ↗
+            </a>
+          ))}
         </div>
       </Reveal>
     </section>

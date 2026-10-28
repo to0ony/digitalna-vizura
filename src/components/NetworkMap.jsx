@@ -11,7 +11,7 @@ const line = {
 
 // Cijela mreža iz feeda, bez podloge karte. Istaknuta trasa je u boji akcenta,
 // a linija preko koje se prijeđe mišem zasvijetli isto tako.
-function NetworkMap({ caption = true }) {
+function Network({ caption }) {
   const { t } = useLang();
   const [hovered, setHovered] = useState(null);
 
@@ -65,11 +65,45 @@ function NetworkMap({ caption = true }) {
       {caption && (
         <p className="mt-6 font-mono text-xs text-muted">
           <span className="text-signal">
-            {t.flow.line} {short}
+            {t.line} {short}
           </span>
           <span className="ml-4">{name}</span>
         </p>
       )}
+    </>
+  );
+}
+
+// `collapsible`: karta je skrivena dok se ne otvori gumbom.
+function NetworkMap({ caption = true, collapsible = false }) {
+  const { t } = useLang();
+  const [open, setOpen] = useState(false);
+
+  if (!collapsible) return <Network caption={caption} />;
+
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        className="text-lg transition-colors hover:text-signal"
+      >
+        {open ? t.network.hide : t.network.show}{" "}
+        <span className="text-signal">{open ? "↑" : "↓"}</span>
+      </button>
+      <div
+        inert={!open}
+        className={`grid transition-[grid-template-rows,opacity] duration-700 ease-out ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="pt-12">
+            <Network caption={caption} />
+          </div>
+        </div>
+      </div>
     </>
   );
 }

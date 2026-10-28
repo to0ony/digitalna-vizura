@@ -92,3 +92,22 @@ body {
     filter: url(#duotone-dark);
   }
 }
+
+/* Slika preko cijelog zaslona */
+.lightbox::backdrop {
+  background: rgb(10 10 10 / 0.96);
+}
+
+.lightbox[open] {
+  animation: lightbox-in 0.25s ease;
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+}
+
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}

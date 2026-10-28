@@ -4,6 +4,8 @@ import { projects } from "../content";
 import { container, grid } from "../grid";
 import Reveal from "./Reveal";
 import ProjectVisual from "./ProjectVisual";
+import Mockups from "./Mockups";
+import PageTitle from "./PageTitle";
 
 function Meta({ label, children }) {
   return (
@@ -27,6 +29,7 @@ function Project() {
 
   return (
     <article>
+      <PageTitle>{project.title}</PageTitle>
       <section className={`${container} ${grid} pt-[8vh] pb-[14vh]`}>
         <Link
           to="/radovi"
@@ -68,6 +71,12 @@ function Project() {
           <ProjectVisual project={project} />
         </Reveal>
       </section>
+
+      {project.mockups && (
+        <section className={`${container} pb-[14vh]`}>
+          <Mockups mockups={project.mockups} />
+        </section>
+      )}
 
       <section className={`${container} ${grid} gap-y-14 pb-[14vh]`}>
         <div className="col-span-12 md:col-span-6">
