@@ -5,7 +5,7 @@ import { container, grid } from "../grid";
 import Reveal from "./Reveal";
 import ProjectVisual from "./ProjectVisual";
 import Mockups from "./Mockups";
-import PageTitle from "./PageTitle";
+import PageMeta from "./PageMeta";
 
 function Meta({ label, children }) {
   return (
@@ -29,7 +29,7 @@ function Project() {
 
   return (
     <article>
-      <PageTitle>{project.title}</PageTitle>
+      <PageMeta title={project.title} description={text.summary} />
       <section className={`${container} ${grid} pt-[8vh] pb-[14vh]`}>
         <Link
           to="/radovi"

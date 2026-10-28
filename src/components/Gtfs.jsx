@@ -5,7 +5,7 @@ import { container, grid, number } from "../grid";
 import Contact from "./Contact";
 import GtfsFiles from "./GtfsFiles";
 import NetworkMap from "./NetworkMap";
-import PageTitle from "./PageTitle";
+import PageMeta from "./PageMeta";
 import Reveal from "./Reveal";
 import SectionLabel from "./SectionLabel";
 
@@ -20,7 +20,7 @@ function Gtfs() {
 
   return (
     <>
-      <PageTitle>GTFS</PageTitle>
+      <PageMeta title="GTFS" description={g.lead} />
       {/* Hero */}
       <section className={`${container} ${grid} pt-[14vh] pb-[16vh]`}>
         <Reveal className="col-span-12 lg:col-span-10">

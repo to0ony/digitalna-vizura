@@ -3,7 +3,7 @@ import { useLang } from "../i18n";
 import { projects } from "../content";
 import { container, grid, number } from "../grid";
 import Contact from "./Contact";
-import PageTitle from "./PageTitle";
+import PageMeta from "./PageMeta";
 import Reveal from "./Reveal";
 import ProjectVisual from "./ProjectVisual";
 
@@ -12,7 +12,7 @@ function Work() {
 
   return (
     <>
-      <PageTitle>{t.work.title.replace(/\.$/, "")}</PageTitle>
+      <PageMeta title={t.work.title.replace(/\.$/, "")} description={t.work.lead} />
       <section className={`${container} ${grid} pt-[14vh] pb-[14vh]`}>
         <Reveal className="col-span-12 lg:col-span-10">
           <h1 className="text-[clamp(3rem,9vw,8.5rem)] leading-[0.95] font-extrabold tracking-[-0.035em]">

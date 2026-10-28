@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/gtfs", "destination": "/index.html" },
+    { "source": "/radovi", "destination": "/index.html" },
+    { "source": "/radovi/:slug", "destination": "/index.html" }
+  ]
 }

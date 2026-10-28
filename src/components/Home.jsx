@@ -3,7 +3,7 @@ import { useLang } from "../i18n";
 import { container, grid } from "../grid";
 import Contact from "./Contact";
 import Outcomes from "./Outcomes";
-import PageTitle from "./PageTitle";
+import PageMeta from "./PageMeta";
 import Reveal from "./Reveal";
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
 
   return (
     <>
-      <PageTitle>{t.hero.title.replace(/\.$/, "")}</PageTitle>
+      <PageMeta title={t.hero.title.replace(/\.$/, "")} description={t.hero.lead} />
       {/* Hero */}
       <section className={`${container} ${grid} pt-[14vh] pb-[16vh]`}>
         <Reveal className="col-span-12 lg:col-span-10">
