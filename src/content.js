@@ -336,7 +336,7 @@ export const projects = [
   {
     slug: "blokich",
     title: "Blokich",
-    stack: ["Angular", "SASS", "NestJS", "Python"],
+    stack: ["Angular", "PrimeNG", "NestJS", "Python", "MongoDB", "GTFS-Realtime"],
     images: [
       "/blokich/screen_1.png",
       "/blokich/screen_2.png",
@@ -345,27 +345,39 @@ export const projects = [
     ],
     githubLink: "https://github.com/to0ony/blokich",
     hr: {
-      summary: "Rasporedi vožnji za vozače zagrebačkog javnog prijevoza.",
+      summary:
+        "Rasporedi vožnji i praćenje autobusa uživo za vozače zagrebačkog javnog prijevoza.",
       description:
-        "Raspored službi i disponenata objavljuje se kao PDF, pa vozač svoje vožnje traži po dugim dokumentima. Blokich te dokumente automatski obrađuje i svakom vozaču prikazuje samo ono što ga se tiče: njegove vožnje ovaj i idući tjedan, današnju smjenu i kolege s kojima je dijeli.",
+        "Raspored službi i disponenata objavljuje se kao PDF, pa vozač svoje vožnje traži po dugim dokumentima. Blokich te dokumente automatski obrađuje i svakom vozaču prikazuje samo ono što ga se tiče: njegove vožnje ovaj i idući tjedan, današnju smjenu i kolege s kojima je dijeli. Preko ZET-ova GTFS-Realtime feeda aplikacija prati autobuse uživo, pa vozač vidi tko od kolega trenutno vozi, koliko kasni i kad stiže na predaju.",
       features: [
-        "Automatska obrada PDF rasporeda disponenata i službi",
-        "Raspored vožnji za aktualni i naredni tjedan",
-        "Današnja smjena i vozači s kojima se dijeli",
+        "Dohvat i obrada rasporeda disponenata i službi jednim klikom, uz ručni uvoz PDF-a",
+        "Raspored vožnji za aktualni i naredni tjedan, s današnjom službom na vrhu",
+        "Današnja smjena i vozači s kojima se dijeli, uz poziv jednim dodirom",
+        "Praćenje uživo: tko vozi, kašnjenje, broj autobusa i procjena dolaska",
+        "Autobus koji vozač preuzima i procjena njegova dolaska, sat prije nastupa",
         "Svi vozači određene linije za odabrani dan",
-        "Vozni red linije i ruta na karti",
+        "Pregled službe, uključujući dvokratne službe na više linija",
+        "Vozni park pogona s modelima, tablicama i trenutnom linijom svakog autobusa",
+        "Statistika rada po tjednu i mjesecu",
+        "Karta linije s vozilima uživo",
       ],
     },
     en: {
-      summary: "Duty schedules for Zagreb public transport drivers.",
+      summary:
+        "Duty schedules and live bus tracking for Zagreb public transport drivers.",
       description:
-        "Duty and dispatch rosters are published as PDFs, so drivers have to search long documents for their runs. Blokich processes those documents automatically and shows each driver only what concerns them: their runs this week and next, today's shift and the colleagues sharing it.",
+        "Duty and dispatch rosters are published as PDFs, so drivers have to search long documents for their runs. Blokich processes those documents automatically and shows each driver only what concerns them: their runs this week and next, today's shift and the colleagues sharing it. Using ZET's GTFS-Realtime feed, the app tracks buses live, so a driver can see which colleagues are driving right now, how late they are and when they will reach the handover.",
       features: [
-        "Automated processing of PDF duty and dispatch rosters",
-        "Duty schedule for the current and next week",
-        "Today's shift and the drivers sharing it",
+        "One-click retrieval and processing of duty and dispatch rosters, with manual PDF import",
+        "Duty schedule for the current and next week, with today's duty on top",
+        "Today's shift and the drivers sharing it, with one-tap calling",
+        "Live tracking: who is driving, delay, bus number and estimated arrival",
+        "The bus a driver takes over and its estimated arrival, an hour before the shift",
         "All drivers on a given line for a chosen day",
-        "Line timetable and route on a map",
+        "Duty lookup, including split shifts across several lines",
+        "Depot fleet with the model, plate and current line of every bus",
+        "Work statistics by week and month",
+        "Line map with live vehicles",
       ],
     },
   },
