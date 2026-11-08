@@ -338,10 +338,9 @@ export const projects = [
     title: "Blokich",
     stack: ["Angular", "PrimeNG", "NestJS", "Python", "MongoDB", "GTFS-Realtime"],
     images: [
-      "/blokich/screen_1.png",
-      "/blokich/screen_2.png",
-      "/blokich/screen_3.png",
-      "/blokich/screen_4.png",
+      "/blokich/raspored.webp",
+      "/blokich/smjena.webp",
+      "/blokich/danas-uzivo.webp",
     ],
     githubLink: "https://github.com/to0ony/blokich",
     hr: {

@@ -14,7 +14,11 @@ function ProjectVisual({ project, lift = false, caption = true }) {
     return <NetworkMap caption={caption} collapsible={!lift} />;
 
   return (
-    <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+    <div
+      className={`grid gap-6 ${
+        project.images.length === 3 ? "grid-cols-3" : "grid-cols-2 md:grid-cols-4"
+      }`}
+    >
       {project.images.map((src) => (
         <Screenshot
           key={src}
