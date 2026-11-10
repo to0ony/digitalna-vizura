@@ -336,18 +336,32 @@ export const projects = [
   {
     slug: "blokich",
     title: "Blokich",
-    stack: ["Angular", "PrimeNG", "NestJS", "Python", "MongoDB", "GTFS-Realtime"],
+    stack: ["Angular", "PrimeNG", "MapLibre", "NestJS", "Python", "MongoDB", "GTFS-Realtime"],
     images: [
       "/blokich/raspored.webp",
-      "/blokich/smjena.webp",
-      "/blokich/danas-uzivo.webp",
+      "/blokich/danas.webp",
+      "/blokich/karta.webp",
+    ],
+    mockups: [
+      {
+        src: "/blokich/karta-uzivo.webp",
+        span: 6,
+        hr: "Karta uživo: sljedeće stajalište, kašnjenje i vozač odabranog autobusa",
+        en: "Live map: next stop, delay and driver of the selected bus",
+      },
+      {
+        src: "/blokich/navigacija-3d.webp",
+        span: 6,
+        hr: "Navigacija po trasi linije u 3D-u",
+        en: "Turn-by-turn navigation along the line, in 3D",
+      },
     ],
     githubLink: "https://github.com/to0ony/blokich",
     hr: {
       summary:
-        "Rasporedi vožnji i praćenje autobusa uživo za vozače zagrebačkog javnog prijevoza.",
+        "Rasporedi vožnji, karta autobusa uživo i navigacija po liniji za vozače zagrebačkog javnog prijevoza.",
       description:
-        "Raspored službi i disponenata objavljuje se kao PDF, pa vozač svoje vožnje traži po dugim dokumentima. Blokich te dokumente automatski obrađuje i svakom vozaču prikazuje samo ono što ga se tiče: njegove vožnje ovaj i idući tjedan, današnju smjenu i kolege s kojima je dijeli. Preko ZET-ova GTFS-Realtime feeda aplikacija prati autobuse uživo, pa vozač vidi tko od kolega trenutno vozi, koliko kasni i kad stiže na predaju.",
+        "Raspored službi i disponenata objavljuje se kao PDF, pa vozač svoje vožnje traži po dugim dokumentima. Blokich te dokumente automatski obrađuje i svakom vozaču prikazuje samo ono što ga se tiče: njegove vožnje ovaj i idući tjedan, današnju smjenu i kolege s kojima je dijeli. Preko ZET-ova GTFS-Realtime feeda aplikacija prati autobuse uživo, pa vozač vidi tko od kolega trenutno vozi, koliko kasni i kad stiže na predaju. Na karti su sva vozila ZET-a uživo, a navigacija po trasi linije pomaže kad vozač vozi liniju koju ne poznaje.",
       features: [
         "Dohvat i obrada rasporeda disponenata i službi jednim klikom, uz ručni uvoz PDF-a",
         "Raspored vožnji za aktualni i naredni tjedan, s današnjom službom na vrhu",
@@ -358,14 +372,17 @@ export const projects = [
         "Pregled službe, uključujući dvokratne službe na više linija",
         "Vozni park pogona s modelima, tablicama i trenutnom linijom svakog autobusa",
         "Statistika rada po tjednu i mjesecu",
-        "Karta linije s vozilima uživo",
+        "Karta svih vozila ZET-a uživo, s vozačem, kašnjenjem i sljedećim stajalištem",
+        "Ruta linije sa stajalištima u oba smjera, uz pretragu po liniji, vozaču ili garažnom broju",
+        "Navigacija po trasi linije prema GPS-u, u 2D-u ili 3D-u, s glasovnim najavama",
+        "Probna vožnja cijele trase za učenje nove linije",
       ],
     },
     en: {
       summary:
-        "Duty schedules and live bus tracking for Zagreb public transport drivers.",
+        "Duty schedules, a live bus map and line navigation for Zagreb public transport drivers.",
       description:
-        "Duty and dispatch rosters are published as PDFs, so drivers have to search long documents for their runs. Blokich processes those documents automatically and shows each driver only what concerns them: their runs this week and next, today's shift and the colleagues sharing it. Using ZET's GTFS-Realtime feed, the app tracks buses live, so a driver can see which colleagues are driving right now, how late they are and when they will reach the handover.",
+        "Duty and dispatch rosters are published as PDFs, so drivers have to search long documents for their runs. Blokich processes those documents automatically and shows each driver only what concerns them: their runs this week and next, today's shift and the colleagues sharing it. Using ZET's GTFS-Realtime feed, the app tracks buses live, so a driver can see which colleagues are driving right now, how late they are and when they will reach the handover. The map shows every ZET vehicle live, and navigation along the line's route helps when a driver takes a line they don't know.",
       features: [
         "One-click retrieval and processing of duty and dispatch rosters, with manual PDF import",
         "Duty schedule for the current and next week, with today's duty on top",
@@ -376,7 +393,10 @@ export const projects = [
         "Duty lookup, including split shifts across several lines",
         "Depot fleet with the model, plate and current line of every bus",
         "Work statistics by week and month",
-        "Line map with live vehicles",
+        "Live map of every ZET vehicle, with driver, delay and next stop",
+        "Line routes with stops in both directions, searchable by line, driver or fleet number",
+        "GPS navigation along the line's route, in 2D or 3D, with voice guidance",
+        "Practice drive of the whole route for learning a new line",
       ],
     },
   },
