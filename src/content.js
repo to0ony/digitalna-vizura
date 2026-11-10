@@ -341,20 +341,9 @@ export const projects = [
       "/blokich/raspored.webp",
       "/blokich/danas.webp",
       "/blokich/karta.webp",
-    ],
-    mockups: [
-      {
-        src: "/blokich/karta-uzivo.webp",
-        span: 6,
-        hr: "Karta uživo: sljedeće stajalište, kašnjenje i vozač odabranog autobusa",
-        en: "Live map: next stop, delay and driver of the selected bus",
-      },
-      {
-        src: "/blokich/navigacija-3d.webp",
-        span: 6,
-        hr: "Navigacija po trasi linije u 3D-u",
-        en: "Turn-by-turn navigation along the line, in 3D",
-      },
+      "/blokich/linija.webp",
+      "/blokich/navigacija.webp",
+      "/blokich/login.webp",
     ],
     githubLink: "https://github.com/to0ony/blokich",
     hr: {

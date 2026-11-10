@@ -13,13 +13,16 @@ function ProjectVisual({ project, lift = false, caption = true }) {
   if (project.visual === "network")
     return <NetworkMap caption={caption} collapsible={!lift} />;
 
+  // Na kartici u popisu radova dovoljna su prva tri screenshota.
+  const images = lift ? project.images.slice(0, 3) : project.images;
+
   return (
     <div
       className={`grid gap-6 ${
-        project.images.length === 3 ? "grid-cols-3" : "grid-cols-2 md:grid-cols-4"
+        images.length % 3 === 0 ? "grid-cols-3" : "grid-cols-2 md:grid-cols-4"
       }`}
     >
-      {project.images.map((src) => (
+      {images.map((src) => (
         <Screenshot
           key={src}
           src={src}
